@@ -109,3 +109,41 @@ h2 b{
     color:#FFFFFF;
     font-size: 70px;
 }
+
+/* used on login page */
+form {
+    font-family: Roboto, sans-serif;
+    color: black;
+    background-color: rgb(43, 122, 120);
+    width: 100%;
+    margin: -50px 25px 25px;
+    padding: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    border-image: initial;
+}
+input[type="text"], input[type="password"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 20px;
+    margin: 8px 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-image: initial;
+}
+button {
+    background-color: black;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    padding: 14px 20px;
+    margin: 8px 40%;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+}
+button :hover{
+    opacity: 80%;   
+}
