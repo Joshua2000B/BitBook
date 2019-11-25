@@ -112,7 +112,7 @@ h2 b{
 }
 
 /* used on login page */
-form {
+#loginFormBox {
     font-family: Roboto, sans-serif;
     color: black;
     background-color: rgb(43, 122, 120);
@@ -124,6 +124,7 @@ form {
     border-color: black;
     border-image: initial;
 }
+
 input[type="text"], input[type="password"] {
     width: 100%;
     box-sizing: border-box;
@@ -147,4 +148,18 @@ button {
 }
 button :hover{
     opacity: 80%;   
+}
+
+#loginBox{
+    margin-top: -160px;
+    margin-right: 75px;
+    font-family: Roboto, sans-serif;
+    color: black;
+    background-color: rgb(43, 122, 120);
+    width: 50%;
+    padding: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    border-image: initial;
 }
