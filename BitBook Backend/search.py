@@ -1,3 +1,4 @@
+import sys
 import pymysql
 #from dbconnect import *
 
@@ -12,13 +13,17 @@ def returnBookList(string):
 
     dbhandler = conn.cursor()
 
-    #Check for books that contain the string in their title
+    #Check for books that match ISBN or contain the string in their title
     dbhandler.execute("select * from book;")
     book_list = dbhandler.fetchall()
 
     final_list = []
-
-    #Add books that fit criteria
+    #Add books with matching ISBN
+    for x in book_list:
+        if(string == str(x[0]):
+           final_list.append(x)
+    
+    #Add books that contain string
     for x in book_list:
         if(string in x[1].lower()):
             final_list.append(x)
@@ -51,10 +56,11 @@ def returnBookList(string):
     return(final_list)
 
 if(__name__=="__main__"):
-    inp = input("Enter a keyword to search for: ")
+    #inp = input("Enter a keyword to search for: ")
+    #inp = "the"
+    inp = sys.argv[1]
     z = returnBookList(inp)
+    print(z)
 
-    for x in z:
-        print(x[1])
 
 
