@@ -160,7 +160,7 @@ button :hover{
     padding: 10px;
     border-width: 2px;
     border-style: solid;
-    border-color: rgb(153, 140, 140);
+    border-color: black;
     border-image: initial;
 }
 
