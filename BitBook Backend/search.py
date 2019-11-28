@@ -22,10 +22,14 @@ def returnBookList(string):
     for x in book_list:
         if(string == str(x[0])):
            final_list.append(x)
-    
+
     #Add books that contain string
     for x in book_list:
-        if(string in x[1].lower()):
+        if(string in x[1].lower() and not x in final_list):
+            final_list.append(x)
+
+    for x in book_list:
+        if(string in x[3].lower() and not x in final_list):
             final_list.append(x)
 
 
@@ -35,7 +39,7 @@ def returnBookList(string):
     author_list = dbhandler.fetchall()
 
     for x in author_list:
-        if(string == x[1].lower() + " " + x[2].lower() or string == x[1].lower() or string == x[2].lower()):
+        if((string == x[1].lower() + " " + x[2].lower() or string == x[1].lower() or string == x[2].lower()) and not x in final_list):
             chosen_authors.append(x)
 
     isbn_list = []
@@ -48,11 +52,11 @@ def returnBookList(string):
 
     for x in isbn_list:
         for y in book_list:
-            if(x == y[0]):
+            if(x == y[0] and not y in final_list):
                 final_list.append(y)
 
     conn.close()
-    
+
     return(final_list)
 
 if(__name__=="__main__"):
@@ -61,6 +65,7 @@ if(__name__=="__main__"):
     inp = sys.argv[1]
     z = returnBookList(inp)
     print(z)
+
 
 
 
