@@ -20,7 +20,7 @@ def returnBookList(string):
     final_list = []
     #Add books with matching ISBN
     for x in book_list:
-        if(string == str(x[0]):
+        if(string == str(x[0])):
            final_list.append(x)
     
     #Add books that contain string
