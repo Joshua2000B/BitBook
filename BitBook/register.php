@@ -14,6 +14,9 @@
 <body>
 <div>
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
     require("dbConnect.php");
 
     if(!get_magic_quotes_gpc()) {
@@ -29,6 +32,19 @@
         $email = $_POST['email'];
         $address = $_POST['address'];
     }
+	#insert into customer values("ADMIN","ADMIN@bitbook.com","Smith Hall","ADMIN","ADMIN","password");
+	$names = explode(" ",$name);
+	$sql = "insert into customer values('$uname','$email','$address','$names[0]','$names[1]','$psw');";	
+	echo $sql;
+	$retval = mysqli_query($conn,$sql);
+	
+	if(! $retval ) {
+        die('Could not enter data: ' . mysqli_error($conn));
+    }
+	
+	mysqli_close($conn);
+	
+	echo $retval;
 ?>
 </div>
 </body>
