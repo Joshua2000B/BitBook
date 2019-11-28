@@ -1,14 +1,16 @@
 <?php
 
-$servername = "10.14.76.151";
+$servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "bitbook"
+$dbname = "bitbook";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if(! $conn) {
     die('Could not connect: ' . mysqli_error($conn));
 }
+
+#$sql = "inser
 
 ?>
