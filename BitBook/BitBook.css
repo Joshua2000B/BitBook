@@ -2,7 +2,6 @@
 .topnav {
     background-color: rgb(2, 2, 2);
     overflow: hidden;
-    width: 100%;
     margin-top: 0%;
 }
   
@@ -10,12 +9,14 @@
 .topnav a {
     float: right;
     text-align: center;
+    display: block;
     color: white;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
 }
 
+/*Used on all types of the navbar*/
 .topnav img{
     float: left;
     text-align: center;
@@ -39,6 +40,18 @@
     color: white;
 }
 
+.topnav input[type=text] {
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+    width: 100px;
+    display:block;
+}
+
+/*Help with scaling*/
 @media screen and (max-width: 600px) {
     .topnav a, .topnav input[type=text] {
         float: none;
@@ -53,13 +66,14 @@
     }
 }
 
+/*Background for ALL pages*/
 html{
     min-height:100%;
     background:linear-gradient(0deg,rgba(58, 175, 169, 0.63),rgba(58, 175, 169, 0.63)),url(https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&w=1000&q=80);
     background-size:cover;
 }
 
-
+/*Used for flexbox on Landing, Login, and Registration*/
 #contents{
     display: flex;
     flex-direction: row;
@@ -111,7 +125,7 @@ h2 b{
     font-size: 70px;
 }
 
-/* used on login page */
+/* used on login page and registration*/
 #loginFormBox {
     font-family: Roboto, sans-serif;
     color: black;
@@ -135,6 +149,7 @@ input[type="text"], input[type="password"] {
     border-color: black;
     border-image: initial;
 }
+
 button {
     background-color: black;
     color: rgb(255, 255, 255);
@@ -146,6 +161,7 @@ button {
     border-color: initial;
     border-image: initial;
 }
+
 button :hover{
     opacity: 80%;   
 }
@@ -192,3 +208,73 @@ button :hover{
 #bottomPart{
     margin: 25px;
 }
+
+/*CSS for feed page*/
+
+#contentsFeed{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#sidebar{
+    display: flex;
+    flex-direction: column;
+    /* flex: 1; */
+    /* margin: 25px; */
+    margin-top: 0px;
+    text-align: center;
+    width: 10%;
+    font-family: Roboto, sans-serif;
+    color: black;
+    background: #2B7A78;
+    padding: 5px;
+    height: 75%;
+}
+
+#bookSelect{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 25px;
+    margin-top: 0px;
+    text-align: center;
+    width: 75%;
+    font-family: Roboto, sans-serif;
+    color: black;
+}
+
+#bottom{
+    text-align: center;
+    font-family: Roboto, sans-serif;
+    background: #2B7A78;
+}
+
+#userProfile{
+    border-radius: 50%;
+    height: 75px;
+    width: 75px;
+    margin-left:25px;
+}
+
+#books{
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    width: 100%;
+    margin-left: 50%;
+}
+
+#bookOne, #bookTwo, #bookThree{
+    display: flex;
+    flex-direction: column;
+    margin: 25px;
+    margin-top: 0px;
+    text-align: center;
+    font-family: Roboto, sans-serif;
+    color: black;
+    text-align: center;
+    padding: 25px;
+}
+
+
