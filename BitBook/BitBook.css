@@ -180,6 +180,35 @@ button :hover{
     border-image: initial;
 }
 
+/* used in book page */
+#info{
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    background-color:#2B7A78;
+    border: 2px solid black;
+    width: 45%;
+    height: 500px;
+    margin: auto;
+}
+#cover{
+    margin: 25px;
+    width: 45%;
+    display:inline-block;
+    vertical-align: top;
+}
+#cover img{
+    width: 45%;
+    float: right;
+}
+#description{
+    margin: 25px;
+    display:inline-block;
+}
+#bottomPart{
+    margin: 25px;
+}
+
 /*CSS for feed page*/
 
 #contentsFeed{
@@ -247,4 +276,5 @@ button :hover{
     text-align: center;
     padding: 25px;
 }
+
 
