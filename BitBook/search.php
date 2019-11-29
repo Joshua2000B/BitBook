@@ -4,11 +4,13 @@
 
 <?php
 function get_books($term) {
-    $output = shell_exec("python \"../Bitbook\ Backend/search.py\" $term");
+    $output = shell_exec("python ../Bitbook\ Backend/search.py $term");
     echo $output;
 }
 if(isset($_GET['search'])) {
     get_books($_GET['search']);
+} else {
+    echo "Search not set";
 }
 ?>
 
