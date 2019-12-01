@@ -1,6 +1,3 @@
-<!-- <!DOCTYPE html>
-<html>
-<body> -->
 <!DOCTYPE html>
 <html> 
     <link rel="stylesheet" href="BitBook.css">
@@ -43,17 +40,17 @@
         // echo $output;
         $array = json_decode($output, true);
         foreach ($array as $book){ 
-            echo '<div class="contentsBook" style="margin-top: 5%;">';
+            echo '<div class="contentsBook">';
             echo '<div class="info">';
             echo '<div class="topPart">';
-            echo '<div class="cover" style="margin: 25px; width: 45%; display:inline-block; vertical-align: top;">';
+            echo '<div class="cover">';
             echo  '<img src="https://render.fineartamerica.com/images/rendered/default/poster/8/10/break/images-medium-5/sherlock-holmes-book-cover-poster-art-2-nishanth-gopinathan.jpg" alt="Cover Photo Did Not Load!">';
             echo '</div>';
-            echo '<div class="description" style="margin: 25px; display:inline-block;">';
+            echo '<div class="description">';
             echo '<p id="title">Title: ' . $book['title'] . '</p>';
             echo '<button type="button" style="margin: 0px;">Purchase</button>';
             echo '</div>';
-            echo '<div class="bottomPart" style="margin: 25px;">';
+            echo '<div class="bottomPart">';
             echo '<p id="summary">Summary: '.$book['summary'].'</p>';
             echo '</div>';
             echo '</div>';
