@@ -1,6 +1,6 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
-<body>
+<body> -->
 <!DOCTYPE html>
 <html> 
     <link rel="stylesheet" href="BitBook.css">
