@@ -47,7 +47,7 @@ function get_books($term) {
         echo '<div class="topPart">';
         echo '<div class="cover">';
         echo '<div class="description">';
-        echo $book['title']
+        echo $book['title'];
         echo '<div class="bottomPart">';
         echo $book['summary'];
         echo '</div>';
