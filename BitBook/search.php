@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<html>
-<body>
-<!DOCTYPE html>
 <html> 
     <link rel="stylesheet" href="BitBook.css">
 <header>
