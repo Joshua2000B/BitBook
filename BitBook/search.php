@@ -46,7 +46,7 @@ function get_books($term) {
         echo '<div class="info">';
         echo '<div class="topPart">';
         echo '<div class="cover">';
-        echo  '<img src="https://render.fineartamerica.com/images/rendered/default/poster/8/10/break/images-medium-5/sherlock-holmes-book-cover-poster-art-2-nishanth-gopinathan.jpg" alt="Cover Photo Did Not Load!">'
+        echo  '<img src="https://render.fineartamerica.com/images/rendered/default/poster/8/10/break/images-medium-5/sherlock-holmes-book-cover-poster-art-2-nishanth-gopinathan.jpg" alt="Cover Photo Did Not Load!">';
         echo '</div>';
         echo '<div class="description">';
         echo $book['title'];
