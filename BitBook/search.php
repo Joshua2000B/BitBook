@@ -50,7 +50,7 @@ function get_books($term) {
         echo '</div>';
         echo '<div class="description">';
         echo $book['title'];
-        echo '<button type="button" style="margin: 0px;">Purchase</button>'
+        echo '<button type="button" style="margin: 0px;">Purchase</button>';
         echo '</div>';
         echo '<div class="bottomPart">';
         echo $book['summary'];
