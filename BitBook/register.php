@@ -1,19 +1,6 @@
 <!DOCTYPE html>
-<html>
-
-    <link rel="stylesheet" href="BitBook.css">
-<header>
-    <div class="topnav" >
-        <img src="https://st2.depositphotos.com/1069290/5358/v/950/depositphotos_53581759-stock-illustration-book-icon-vector-logo.jpg">
-        <a href="landing.html">Home</a>
-        <a href="login.html">Login</a>
-        <a class="active" href="register.html">Register</a>
-    </div>
-</header>
-
-<body>
-<div>
 <?php
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -44,8 +31,26 @@ error_reporting(E_ALL);
 	
 	mysqli_close($conn);
 	
+	setcookie("user",$uname, time() + (120), "/");
+	
 	echo $retval;
+
 ?>
+
+<html>
+
+    <link rel="stylesheet" href="BitBook.css">
+<header>
+    <div class="topnav" >
+        <img src="https://st2.depositphotos.com/1069290/5358/v/950/depositphotos_53581759-stock-illustration-book-icon-vector-logo.jpg">
+        <a href="landing.html">Home</a>
+        <a href="login.html">Login</a>
+        <a class="active" href="register.html">Register</a>
+    </div>
+</header>
+
+<body>
+<div>
 </div>
 </body>
 </html>
