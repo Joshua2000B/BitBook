@@ -1,5 +1,6 @@
 import sys
 import pymysql
+import json
 #from dbconnect import *
 
 
@@ -64,8 +65,12 @@ if(__name__=="__main__"):
     #inp = "the"
     inp = sys.argv[1]
     z = returnBookList(inp)
-    print(z)
-
+    #print(z)
+    v = {}
+    for x in z:
+        v[int(x[0])] = {'title':x[1],'published':str(x[2]),'summary':x[3],'copies':int(x[4]),'online':bool(x[5]),'cover':x[6]}
+    print(json.dumps(v))
+    #print(v)
 
 
 
