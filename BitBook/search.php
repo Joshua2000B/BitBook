@@ -17,7 +17,7 @@
 </header>
 
 <body>
-    <div id="contentsBook">
+    <!-- <div id="contentsBook">
         <div id="info">
             <div id="topPart">
                 <div id="cover">
@@ -33,13 +33,13 @@
                 <p id="summary">Summary: </p>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
 <?php
 function get_books($term) {
     $output = shell_exec("python3.8 ../BitBook\ Backend/search.py $term");
-    echo $output;
+    // echo $output;
     $array = json_decode($output, true);
     foreach ($array as $book){ 
         echo '<div class="contentsBook">';
@@ -49,10 +49,12 @@ function get_books($term) {
         echo  '<img src="https://render.fineartamerica.com/images/rendered/default/poster/8/10/break/images-medium-5/sherlock-holmes-book-cover-poster-art-2-nishanth-gopinathan.jpg" alt="Cover Photo Did Not Load!">';
         echo '</div>';
         echo '<div class="description">';
+        echo '<p id="title">Title: </p>';
         echo $book['title'];
         echo '<button type="button" style="margin: 0px;">Purchase</button>';
         echo '</div>';
         echo '<div class="bottomPart">';
+        echo '<p id="summary">Summary: </p>';
         echo $book['summary'];
         echo '</div>';
         echo '</div>';
