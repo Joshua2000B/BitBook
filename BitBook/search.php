@@ -25,7 +25,7 @@
                 </div> 
                 <div id="description">
                     <p id="title">Title: </p> 
-                    <p id="author">Author: </p>
+                    <!-- <p id="author">Author: </p> -->
                     <button type="button" style="margin: 0px;">Purchase</button>
                 </div>
             </div>
@@ -46,6 +46,17 @@ if(isset($_GET['search'])) {
 } #else {
   #  echo "Search not set";
   #}
+  $array = json_decode($output, true);
+foreach ($array as $book){ 
+    echo '<div class="contentsBook">';
+    echo '<div class="info">';
+    echo '<div class="topPart">';
+    echo '<div class="cover">';
+    echo '<div class="description">';
+    echo $book->title;
+    echo '<div class="bottomPart">';
+    echo $book->summary;
+}
 ?>
 
 </body> 
