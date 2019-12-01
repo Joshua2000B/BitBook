@@ -38,10 +38,10 @@
 
 <?php
 function get_books($term) {
-        $output = shell_exec("python3.8 ../BitBook\ Backend/search.py $term");
-        echo $output;
-        $array = json_decode($output, true);
-        foreach ($array as $book){ 
+    $output = shell_exec("python3.8 ../BitBook\ Backend/search.py $term");
+    echo $output;
+    $array = json_decode($output, true);
+    foreach ($array as $book){ 
         echo '<div class="contentsBook">';
         echo '<div class="info">';
         echo '<div class="topPart">';
@@ -50,7 +50,7 @@ function get_books($term) {
         echo $book->title;
         echo '<div class="bottomPart">';
         echo $book->summary;
-}
+    }
 }
 if(isset($_GET['search'])) {
     get_books($_GET['search']);
