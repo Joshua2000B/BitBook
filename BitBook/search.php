@@ -44,7 +44,7 @@
         $array = json_decode($output, true);
         foreach ($array as $book){ 
             echo '<div class="contentsBook" style="margin-top: 5%;">';
-            echo '<div class="info" style="text-align: left; font-family: 'Roboto', sans-serif; color: black; background-color:#2B7A78; border: 2px solid black; width: 45%; height: 500px; margin: auto;">';
+            echo '<div class="info" style="text-align: left; sans-serif; color: black; background-color:#2B7A78; border: 2px solid black; width: 45%; height: 500px; margin: auto;">';
             echo '<div class="topPart">';
             echo '<div class="cover" style="margin: 25px; width: 45%; display:inline-block; vertical-align: top;">';
             echo  '<img src="https://render.fineartamerica.com/images/rendered/default/poster/8/10/break/images-medium-5/sherlock-holmes-book-cover-poster-art-2-nishanth-gopinathan.jpg" alt="Cover Photo Did Not Load!">';
