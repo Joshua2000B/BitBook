@@ -220,8 +220,6 @@ button :hover{
 #sidebar{
     display: flex;
     flex-direction: column;
-    /* flex: 1; */
-    /* margin: 25px; */
     margin-top: 0px;
     text-align: center;
     width: 10%;
@@ -231,6 +229,7 @@ button :hover{
     padding: 5px;
     height: 75%;
 }
+
 
 #bookSelect{
     display: flex;
