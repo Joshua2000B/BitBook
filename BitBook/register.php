@@ -9,19 +9,20 @@ error_reporting(E_ALL);
     if(!get_magic_quotes_gpc()) {
         $uname = addslashes($_POST['uname']);
         $psw = $_POST['psw'];
-        $name = $_POST['name'];
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
         $email = $_POST['email'];
         $address = $_POST['address'];
     } else {
         $uname = $_POST['uname'];
         $psw = $_POST['psw'];
-        $name = $_POST['name'];
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
         $email = $_POST['email'];
         $address = $_POST['address'];
     }
 	#insert into customer values("ADMIN","ADMIN@bitbook.com","Smith Hall","ADMIN","ADMIN","password");
-	$names = explode(" ",$name);
-	$sql = "insert into customer values('$uname','$email','$address','$names[0]','$names[1]','$psw');";	
+	$sql = "insert into customer values('$uname','$email','$address','$fname','$lname','$psw');";	
 	echo $sql;
 	$retval = mysqli_query($conn,$sql);
 	
