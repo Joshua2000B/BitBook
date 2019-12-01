@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 
 <?php
-echo "HELLO";
-if(!isset($_COOKIE["user"])) {
-	echo "NO user";
-}
-else {
-	echo "Hello, " . $_COOKIE['user'];
-}
-
 require("dbConnect.php");
 
 if(!get_magic_quotes_gpc()) {
@@ -21,20 +13,32 @@ else {
 }
 
 $sql = "select password from customer where username = '$uname';";
-echo $sql;
+#echo $sql;
 $retval = mysqli_query($conn,$sql);
 
 if(! $retval) {
 	die('Could not enter data: ' . mysqli_error($conn));
 }
 mysqli_close($conn);
-
-if($retval == $psw) {
+$row = $retval->fetch_assoc();
+if($row['password'] == $psw) {
 	setcookie("user",$uname, time() + (120), "/");
 }
 else {
 	echo "INVALID LOGIN";
 }
+
+if(!isset($_COOKIE["user"])) {
+    echo "NO user <br>";
+}
+else {
+    echo "Hello, " . $_COOKIE['user'];
+}
+
+ob_start();
+header('Location: feed.html');
+ob_end_flush();
+die();
 
 ?>
 

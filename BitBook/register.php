@@ -35,6 +35,11 @@ error_reporting(E_ALL);
 	
 	echo $retval;
 
+ob_start();
+header('Location: feed.html');
+ob_end_flush();
+die();
+
 ?>
 
 <html>
