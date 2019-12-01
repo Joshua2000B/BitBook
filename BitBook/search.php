@@ -47,13 +47,13 @@
             echo  '<img src="https://render.fineartamerica.com/images/rendered/default/poster/8/10/break/images-medium-5/sherlock-holmes-book-cover-poster-art-2-nishanth-gopinathan.jpg" alt="Cover Photo Did Not Load!">';
             echo '</div>';
             echo '<div class="description">';
-            // echo '<p id="title">Title: ';
+            echo '<p id="title">Title: </p>';
             echo $book['title'];
             // echo '</p>';
             echo '<button type="button" style="margin: 0px;">Purchase</button>';
             echo '</div>';
             echo '<div class="bottomPart">';
-            // echo '<p id="summary">Summary: ';
+            echo '<p id="summary">Summary: </p>';
             echo $book['summary'];
             // echo '</p>';
             echo '</div>';
