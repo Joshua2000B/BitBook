@@ -8,7 +8,7 @@
     <div class="topnav" >
         <img src="https://st2.depositphotos.com/1069290/5358/v/950/depositphotos_53581759-stock-illustration-book-icon-vector-logo.jpg">
         <a href="landing.html">Home</a>
-        <a href="Feed.html">Books For You</a>
+        <a href="feed.html">Books For You</a>
         <form class="example" action="search.php" style="padding-block: 15px;">
             <input type="text" placeholder="Search.." name="search">
             <button type="submit">Search</button>
@@ -25,7 +25,7 @@
                 </div> 
                 <div id="description">
                     <p id="title">Title: </p> 
-                    <!-- <p id="author">Author: </p> -->
+                     <p id="author">Author: </p>
                     <button type="button" style="margin: 0px;">Purchase</button>
                 </div>
             </div>
