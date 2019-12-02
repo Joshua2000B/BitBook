@@ -8,7 +8,7 @@
         <a href="feed.html">Books For You</a>
         <form class="example" action="search.php" style="padding-block: 15px;">
             <input type="text" placeholder="Search.." name="search">
-            <button type="submit">Search</button>
+            <button type="submit" style="margin-left:72.5%;">Search</button>
         </form>
     </div>
 </header>
