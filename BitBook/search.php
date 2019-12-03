@@ -1,7 +1,6 @@
 <?php
 
   if($_GET) {
-  echo "HEY";
       if(isset($_GET['book'])) {
 
           order($_GET['book']);
@@ -47,42 +46,23 @@
     <div class="topnav" >
         <img src="https://st2.depositphotos.com/1069290/5358/v/950/depositphotos_53581759-stock-illustration-book-icon-vector-logo.jpg">
         <a href="feed.html">Books For You</a>
-        <form class="example" action="search.php" style="padding-block: 15px;">
+        <form class="example" action="search.php" style="height: 42px;">
+            <button type="submit" style="margin-left:0px;">Search</button>
             <input type="text" placeholder="Search.." name="search">
-            <button type="submit" style="margin-left:72.5%;">Search</button>
         </form>
     </div>
 </header>
 
 <body>
-    <!-- <div id="contentsBook">
-        <div id="info">
-            <div id="topPart">
-                <div id="cover">
-                        <img src="https://render.fineartamerica.com/images/rendered/default/poster/8/10/break/images-medium-5/sherlock-holmes-book-cover-poster-art-2-nishanth-gopinathan.jpg" alt="Cover Photo Did Not Load!">
-                </div> 
-                <div id="description">
-                    <p id="title">Title: </p> 
-                     <p id="author">Author: </p>
-                    <button type="button" style="margin: 0px;">Purchase</button>
-                </div>
-            </div>
-            <div id="bottomPart">
-                <p id="summary">Summary: </p>
-            </div>
-        </div>
-    </div> -->
-
 
     <?php
-      function buy_books($isbn) {
-
-      }
       
     // header("Content-type: text/css");
     function get_books($term) {
         $output = shell_exec("python3.8 ../BitBook\ Backend/search.py $term");
-        // echo $output;
+        echo "Output: <br>";
+        echo $output;
+        echo "<br>";
         $array = json_decode($output, true);
         foreach ($array as $book){ 
             echo '<div class="contentsBook" style="margin-top: 5%;">';
