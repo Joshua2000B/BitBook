@@ -63,6 +63,11 @@
         echo "Output: <br>";
         echo $output;
         echo "<br>";
+        if($output == "{}") {
+          echo '<h1> Sorry! </h1>';
+          echo '<p> We were unable to find any books with those criteria, please try again </p>';
+          die();
+        }
         $array = json_decode($output, true);
         foreach ($array as $book){ 
             echo '<div class="contentsBook" style="margin-top: 5%;">';
@@ -97,9 +102,7 @@
     }
     if(isset($_GET['search'])) {
         get_books($_GET['search']);
-    } #else {
-    #  echo "Search not set";
-    #}
+    }
     ?>
 
 </body> 
