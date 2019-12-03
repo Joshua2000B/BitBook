@@ -17,12 +17,9 @@
 
     <?php
       
-    // header("Content-type: text/css");
     function get_books($term) {
         $output = shell_exec("python3.8 ../BitBook\ Backend/search.py $term");
-//        echo "Output (type/contents): <br>";
-//        echo gettype($output) . "/|||" . $output . "|||";
-//        echo "<br>";
+
         if($output == "{}\n") {
           echo '<h1> Sorry! </h1>';
           echo '<p> We were unable to find any books with those criteria, please try again </p>';
@@ -42,12 +39,7 @@
             echo '</p>';
 
 	    echo '<form action="order.php" method="get">';
-            //echo '<input type="submit" class="button" name="test" value="hello" />';
-	    //echo '<input type="submit" name="book" value=' . $book["title"] . ' />';
-	    //echo $book["title"];
 	    echo '<button type="submit" name="book" value = ' . urlencode($book["title"]) . '>Purchase</button></form>';
-
-	    //echo '<button id="btn"' . $book["title"] . ' name="btn"' . $book["title"] . ' onClick="location.href="?book=$book["title"]">Purchase</button>';
 
             echo '</div>';
             echo '<div class="bottomPart" style="margin: 25px;">';
