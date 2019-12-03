@@ -60,8 +60,8 @@
     // header("Content-type: text/css");
     function get_books($term) {
         $output = shell_exec("python3.8 ../BitBook\ Backend/search.py $term");
-        echo "Output: <br>";
-        echo $output;
+        echo "Output (type/contents): <br>";
+        echo gettype($output) . "/" . $output;
         echo "<br>";
         if($output == "") {
           echo '<h1> Sorry! </h1>';
