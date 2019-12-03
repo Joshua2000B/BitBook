@@ -14,48 +14,42 @@
 
 <body>
 
-    <?php
-    
+   <?php
+
   if($_GET) {
-    echo "HEY";
-        if(isset($_GET['book'])) {
-  
-            order($_GET['book']);
-        }
-    }
-  
-    function order($book) {
-  
-    $book = str_replace("+"," ",$book);
-  
-    echo "IN FUNCTION with book: " . $book;
-    require("dbConnect.php");
-    if(isset($_COOKIE["user"])) {
-  
-        $sql = "select isbn from book where title = '$book';";
-  
-        $isbn = mysqli_query($conn,$sql);
-  
-        if(! $isbn) {die('Could not enter data: ' . mysqli_error($conn));}
-  
-        echo gettype($isbn);
-        $isbn = $isbn->fetch_row();
-        $time = date('Y-m-d G:i:s');
-  
-        $sql = "insert into ordered values('$time','".$_COOKIE["user"]."',$isbn[0],0);";
-        echo $sql;
-        $retval = mysqli_query($conn,$sql);
-  
-        if(! $retval) {die('Could not enter data: ' . mysqli_error($conn));}
-  
-        mysqli_close($conn);
-        foreach ($array as $book){ 
+//  echo "HEY";
+      if(isset($_GET['book'])) {
+
+          order($_GET['book']);
+      }
+  }
+
+  function order($book) {
+
+  $book = str_replace("+"," ",$book);
+
+//  echo "IN FUNCTION with book: " . $book;
+  require("dbConnect.php");
+  if(isset($_COOKIE["user"])) {
+
+      $sql = "select isbn from book where title = '" . str_replace("'","\'",urldecode($book)) . "';";
+
+      $isbn = mysqli_query($conn,$sql);
+
+      if(! $isbn) {die('Could not enter data: ' . mysqli_error($conn));}
+
+  //    echo gettype($isbn);
+      $isbn = $isbn->fetch_row();
+      $time = date('Y-m-d G:i:s');
+
+      $sql = "insert into ordered values('$time','".$_COOKIE["user"]."',$isbn[0],0);";
+            foreach ($array as $book){ 
             echo '<div class="contentsBook" style="margin-top: 5%;">';
             echo '<div class="info" style="text-align: left; sans-serif; color: black; background-color:#2B7A78; border: 2px solid black; width: 45%; height: 500px; margin: auto;">';
             echo '<div class="topPart">';
             echo '<div class="description" style="margin: 25px; display:inline-block;">';
             echo '<p>You have successfully ordered:';
-            echo $book['title'];
+            echo urldecode($book);
             echo '</p>';
             echo '<p>Feel free to look for more books while you wait for your book to arrive!';
             echo '</p>';
@@ -64,13 +58,19 @@
             echo '</div>';
             echo '</div>';
         }
-    }
-    else {
-        echo "You aren't logged in!";
-    }
-    }
+      echo "Successfully purchased ".urldecode($book)."!";
+      //echo $sql;
+      $retval = mysqli_query($conn,$sql);
+      
+      if(! $retval) {die('Could not enter data: ' . mysqli_error($conn));}
 
-    ?>
+      mysqli_close($conn);
+  }
+  else {
+      echo "You aren't logged in!";
+  }
+  }
+?>
 
 </body> 
 </html>
