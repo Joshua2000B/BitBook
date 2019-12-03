@@ -46,14 +46,14 @@
            
 
 
-      echo '<div class="contentsBook" style="margin-top: 5%;">';
+      echo '<div class="contentsBook" style="margin-top: 5%; text-align:center;">';
       echo '<div class="info" style="text-align: left; sans-serif; color: black; background-color:#2B7A78; border: 2px solid black; width: 45%; height: 500px; margin: auto;">';
       echo '<div class="topPart">';
       echo '<div class="description" style="margin: 25px; display:inline-block;">';
-      echo '<p>You have successfully ordered:';
-      echo "Successfully purchased ".urldecode($book)."!";
+      echo '<p style="color:white" "font-size: 15px;">You have successfully ordered:';
+      echo  urldecode($book);
       echo '</p>';
-      echo '<p>Feel free to look for more books while you wait for your book to arrive!';
+      echo '<p style="color:white" "font-size: 15px;">Feel free to look for more books while you wait for your book to arrive!';
       echo '</p>';
       echo '</div>';
       echo '</div>';
