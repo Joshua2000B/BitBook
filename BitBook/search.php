@@ -1,43 +1,3 @@
-<?php
-
-  if($_GET) {
-      if(isset($_GET['book'])) {
-
-          order($_GET['book']);
-      }
-  }
-
-  function order($book) {
-
-  $book = str_replace($book, "+", " ");
-
-  echo "IN FUNCTION";
-  require("dbConnect.php");
-  if(isset($_COOKIE["user"])) {
-
-      $sql = "select isbn from book where title = '$book';";
-
-      $isbn = mysqli_query($conn,$sql);
-
-      if(! $isbn) {die('Could not enter data: ' . mysqli_error($conn));}
-
-      echo gettype($isbn);
-
-      $time = date('Y-m-d G:i:s'); 
-  
-      $sql = "insert into ordered values('$time','".$_COOKIE["user"]."',$book,0);";
-      echo $sql;
-      $retval = mysqli_query($conn,$sql);
-
-      if(! $retval) {die('Could not enter data: ' . mysqli_error($conn));}
-
-      mysqli_close($conn);
-  }
-  else {
-      echo "You aren't logged in!";
-  }
-  }
-  ?>
 
 <!DOCTYPE html>
 <html> 
@@ -59,9 +19,7 @@
       
     function get_books($term) {
         $output = shell_exec("python3.8 ../BitBook\ Backend/search.py $term");
-        #echo "Output (type/contents): <br>";
-        #echo gettype($output) . "/|||" . $output . "|||";
-        #echo "<br>";
+
         if($output == "{}\n") {
           echo '<h1> Sorry! </h1>';
           echo '<p> We were unable to find any books with those criteria, please try again </p>';
@@ -70,7 +28,7 @@
         $array = json_decode($output, true);
         foreach ($array as $book){ 
             echo '<div class="contentsBook" style="margin-top: 5%;">';
-            echo '<div class="info" style="text-align: left; sans-serif; color: black; background-color:#2B7A78; border: 2px solid black; width: 45%; height: 500px; margin: auto;">';
+            echo '<div class="info" style="text-align: left; sans-serif; color: black; background-color:#2B7A78; border: 2px solid black; width: 45%; margin: auto;">';
             echo '<div class="topPart">';
             echo '<div class="cover" style="margin: 25px; width: 45%; display:inline-block; vertical-align: top;">';
             echo  '<img src="https://render.fineartamerica.com/images/rendered/default/poster/8/10/break/images-medium-5/sherlock-holmes-book-cover-poster-art-2-nishanth-gopinathan.jpg" alt="Cover Photo Did Not Load!" height="55%" width="45%;" float: right;>';
