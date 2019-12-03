@@ -61,9 +61,9 @@
     function get_books($term) {
         $output = shell_exec("python3.8 ../BitBook\ Backend/search.py $term");
         echo "Output (type/contents): <br>";
-        echo gettype($output) . "/" . $output;
+        echo gettype($output) . "/|||" . $output . "|||";
         echo "<br>";
-        if($output == "") {
+        if($output == "{}\n") {
           echo '<h1> Sorry! </h1>';
           echo '<p> We were unable to find any books with those criteria, please try again </p>';
           die();
