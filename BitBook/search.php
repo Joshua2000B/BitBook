@@ -63,7 +63,7 @@
         echo "Output: <br>";
         echo $output;
         echo "<br>";
-        if($output == "{}") {
+        if($output == "") {
           echo '<h1> Sorry! </h1>';
           echo '<p> We were unable to find any books with those criteria, please try again </p>';
           die();
