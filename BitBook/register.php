@@ -32,7 +32,7 @@ error_reporting(E_ALL);
 	
 	mysqli_close($conn);
 	
-	setcookie("user",$uname, time() + (120), "/");
+	setcookie("user",$uname, time() + (3600), "/");
 	
 	echo $retval;
 

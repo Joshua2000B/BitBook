@@ -1,3 +1,45 @@
+<?php
+
+  if($_GET) {
+  echo "HEY";
+      if(isset($_GET['book'])) {
+
+          order($_GET['book']);
+      }
+  }
+
+  function order($book) {
+
+  $book = str_replace($book, "+", " ");
+
+  echo "IN FUNCTION";
+  require("dbConnect.php");
+  if(isset($_COOKIE["user"])) {
+
+      $sql = "select isbn from book where title = '$book';";
+
+      $isbn = mysqli_query($conn,$sql);
+
+      if(! $isbn) {die('Could not enter data: ' . mysqli_error($conn));}
+
+      echo gettype($isbn);
+
+      $time = date('Y-m-d G:i:s'); 
+  
+      $sql = "insert into ordered values('$time','".$_COOKIE["user"]."',$book,0);";
+      echo $sql;
+      $retval = mysqli_query($conn,$sql);
+
+      if(! $retval) {die('Could not enter data: ' . mysqli_error($conn));}
+
+      mysqli_close($conn);
+  }
+  else {
+      echo "You aren't logged in!";
+  }
+  }
+  ?>
+
 <!DOCTYPE html>
 <html> 
     <link rel="stylesheet" href="BitBook.css">
@@ -33,6 +75,10 @@
 
 
     <?php
+      function buy_books($isbn) {
+
+      }
+      
     // header("Content-type: text/css");
     function get_books($term) {
         $output = shell_exec("python3.8 ../BitBook\ Backend/search.py $term");
@@ -49,7 +95,15 @@
             echo '<p id="title">Title: ';
             echo $book['title'];
             echo '</p>';
-            echo '<button type="button" style="margin: 0px;">Purchase</button>';
+
+	    echo '<form action="order.php" method="get">';
+            //echo '<input type="submit" class="button" name="test" value="hello" />';
+	    //echo '<input type="submit" name="book" value=' . $book["title"] . ' />';
+	    //echo $book["title"];
+	    echo '<button type="submit" name="book" value = ' . urlencode($book["title"]) . '>Purchase</button></form>';
+
+	    //echo '<button id="btn"' . $book["title"] . ' name="btn"' . $book["title"] . ' onClick="location.href="?book=$book["title"]">Purchase</button>';
+
             echo '</div>';
             echo '<div class="bottomPart" style="margin: 25px;">';
             echo '<p id="summary">Summary: ';

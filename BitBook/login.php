@@ -22,7 +22,7 @@ if(! $retval) {
 mysqli_close($conn);
 $row = $retval->fetch_assoc();
 if($row['password'] == $psw) {
-    setcookie("user",$uname, time() + (120), "/");
+    setcookie("user",$uname, time() + (3600), "/");
     ob_start();
     header('Location: feed.html');
     ob_end_flush();
