@@ -26,36 +26,36 @@
 
   function order($book) {
 
-  $book = str_replace("+"," ",$book);
+//  $book = str_replace("+"," ",$book);
 
 //  echo "IN FUNCTION with book: " . $book;
   require("dbConnect.php");
   if(isset($_COOKIE["user"])) {
 
-      $sql = "select isbn from book where title = '" . str_replace("'","\'",urldecode($book)) . "';";
+      //$sql = "select isbn from book where title = '" . str_replace("'","\'",urldecode($book)) . "';";
 
-      $isbn = mysqli_query($conn,$sql);
+      //$isbn = mysqli_query($conn,$sql);
 
-      if(! $isbn) {die('Could not enter data: ' . mysqli_error($conn));}
+      //if(! $isbn) {die('Could not enter data: ' . mysqli_error($conn));}
 
   //    echo gettype($isbn);
-      $isbn = $isbn->fetch_row();
+      //$isbn = $isbn->fetch_row();
       $time = date('Y-m-d G:i:s');
 
-      $sql = "insert into ordered values('$time','".$_COOKIE["user"]."',$isbn[0],0);";
-           
+      $sql = "insert into ordered values('$time','".$_COOKIE["user"]."',$book,0);";
+      //echo $sql;
 
 
       echo '<div class="contentsBook" style="margin-top: 5%; text-align:center;">';
-      echo '<p style="color:white; font-size: 25px;">You have successfully ordered :';
+      echo '<p style="color:white; font-size: 25px;">You have successfully ordered your book!';
       echo '<br>';
-      echo  urldecode($book);
+      //echo  $book);
       echo '</p>';
       echo '<p style="color:white; font-size: 25px;">Feel free to look for more books while you wait for your book to arrive!';
       echo '</p>';
       echo '<br>';
       echo '</p>';
-      echo '<p style="color:white; font-size: 25px;">Thank you for using BitBook!';
+      echo '<p style="color:white; font-size: 25px;">Thank you for using BitBook, ' . $_COOKIE["user"] . '!';
       echo '</p>';
       echo '</div>';
       //echo $sql;
@@ -66,7 +66,7 @@
       mysqli_close($conn);
   }
   else {
-      echo "You aren't logged in!";
+      echo '<h1>You aren\'t logged in!</h1>';
   }
   }
 ?>
