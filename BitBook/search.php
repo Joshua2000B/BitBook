@@ -18,6 +18,9 @@
     <?php
       
     function get_books($term) {
+
+      require("dbConnect.php");
+
         $output = shell_exec("python3.8 ../BitBook\ Backend/search.py $term");
 
         if($output == "{}\n") {
@@ -38,7 +41,12 @@
             echo '<p id="title">Title: ';
             echo $book['title'];
             echo '</p>';
-
+            $sql = "select author.fname, author.lName from book natural join wrote natural join author where book.ISBN = " . $book["isbn"];
+            $author = mysqli_query($conn,$sql)
+            if($author) {
+              $author = $author->fetch_row();
+              echo '<p id="author"> Author: ' . $author['fname'] . " " . $author["lName"] . "</p>";
+            }
 	    echo '<form action="order.php" method="get">';
 	    echo '<button type="submit" name="book" value = ' . $book["isbn"] . '>Purchase</button></form>';
 
