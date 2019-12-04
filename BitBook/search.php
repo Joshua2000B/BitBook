@@ -42,7 +42,7 @@
             echo $book['title'];
             echo '</p>';
             $sql = "select author.fname, author.lName from book natural join wrote natural join author where book.ISBN = " . $book["isbn"];
-            $author = mysqli_query($conn,$sql)
+            $author = mysqli_query($conn,$sql);
             if($author) {
               $author = $author->fetch_row();
               echo '<p id="author"> Author: ' . $author['fname'] . " " . $author["lName"] . "</p>";
