@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html> 
     <link rel="stylesheet" href="BitBook.css">
-<header>
+0;136;0c<header>
     <div class="topnav" >
         <img src="https://st2.depositphotos.com/1069290/5358/v/950/depositphotos_53581759-stock-illustration-book-icon-vector-logo.jpg">
         <a href="feed.html">Books For You</a>
@@ -31,7 +31,8 @@
             echo '<div class="info" style="text-align: left; sans-serif; color: black; background-color:#2B7A78; border: 2px solid black; width: 45%; margin: auto;">';
             echo '<div class="topPart">';
             echo '<div class="cover" style="margin: 25px; width: 45%; display:inline-block; vertical-align: top;">';
-            echo  '<img src="https://render.fineartamerica.com/images/rendered/default/poster/8/10/break/images-medium-5/sherlock-holmes-book-cover-poster-art-2-nishanth-gopinathan.jpg" alt="Cover Photo Did Not Load!" height="55%" width="45%;" float: right;>';
+            //echo '"' . $book["cover"] . '"';
+            echo  '<img src="' . $book["cover"] . '" alt="Cover Photo Did Not Load!" height="55%" width="45%;" float: right;>';
             echo '</div>';
             echo '<div class="description" style="margin: 25px; display:inline-block;">';
             echo '<p id="title">Title: ';
@@ -39,7 +40,7 @@
             echo '</p>';
 
 	    echo '<form action="order.php" method="get">';
-	    echo '<button type="submit" name="book" value = ' . urlencode($book["title"]) . '>Purchase</button></form>';
+	    echo '<button type="submit" name="book" value = ' . $book["isbn"] . '>Purchase</button></form>';
 
             echo '</div>';
             echo '<div class="bottomPart" style="margin: 25px;">';
