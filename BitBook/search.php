@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <html> 
     <link rel="stylesheet" href="BitBook.css">
-0;136;0c<header>
+<header>
     <div class="topnav" >
         <img src="https://st2.depositphotos.com/1069290/5358/v/950/depositphotos_53581759-stock-illustration-book-icon-vector-logo.jpg">
         <a href="feed.html">Books For You</a>
@@ -45,7 +44,7 @@
             $author = mysqli_query($conn,$sql);
             if($author) {
               $author = $author->fetch_row();
-              echo '<p id="author"> Author: ' . $author['fname'] . " " . $author["lName"] . "</p>";
+              echo '<p id="author"> Author: ' . $author[0] . " " . $author[1] . "</p>";
             }
 	    echo '<form action="order.php" method="get">';
 	    echo '<button type="submit" name="book" value = ' . $book["isbn"] . '>Purchase</button></form>';
