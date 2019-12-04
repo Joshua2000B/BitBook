@@ -33,7 +33,7 @@
             echo '<div class="info" style="text-align: left; sans-serif; color: black; background-color:#2B7A78; border: 2px solid black; width: 45%; margin: auto;">';
             echo '<div class="topPart">';
             echo '<div class="cover" style="margin: 25px; width: 45%; display:inline-block; vertical-align: top;">';
-            echo  '<img src="' . $book["cover"] . '" onerror="this.onerror=null; this.src='covers/Default.jpg'" alt="Cover Photo Did Not Load!" height="55%" width="45%;" float: right;>';
+            echo  '<img src="' . $book["cover"] . '" alt="covers/Default.jpg" height="55%" width="45%;" float: right;>';
             echo '</div>';
             echo '<div class="description" style="margin: 25px; display:inline-block;">';
             echo '<p id="title">Title: ';
